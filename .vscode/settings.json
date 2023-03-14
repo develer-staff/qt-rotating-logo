@@ -30,6 +30,7 @@
     "editor.defaultFormatter": "redhat.vscode-yaml",
     "editor.formatOnSave": true
   },
+  "C_Cpp.codeAnalysis.clangTidy.enabled": true,
   "cmake.configureOnEdit": false,
   "cmake.configureOnOpen": false,
   "editor.rulers": [120],
