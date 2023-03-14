@@ -13,6 +13,8 @@ const auto MIN_HEIGHT { 480 };
 
 MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), applicationModel(new common::ApplicationModel(this))
 {
+    QQuickWindow::setGraphicsApi(QSGRendererInterface::OpenGL);
+
     setMinimumSize(MIN_WIDTH, MIN_HEIGHT);
 
     auto qml = new QQuickWidget(this);
