@@ -1,0 +1,77 @@
+# Based on Qt clang-format style
+# https://code.qt.io/cgit/qt/qt5.git/tree/_clang-format
+
+BasedOnStyle: WebKit
+Standard: c++17
+ColumnLimit: 120
+PointerBindsToType: true
+
+# We use template< without space.
+SpaceAfterTemplateKeyword: false
+
+# We want to break before the operators, but not before a '='.
+BreakBeforeBinaryOperators: NonAssignment
+
+# When to break after braces
+BreakBeforeBraces: Custom
+BraceWrapping:
+    AfterClass: true
+    AfterControlStatement: true
+    AfterEnum: true
+    AfterFunction: true
+    AfterNamespace: false
+    AfterObjCDeclaration: false
+    AfterStruct: true
+    AfterUnion: true
+    BeforeCatch: true
+    BeforeElse: true
+    IndentBraces: false
+
+# When constructor initializers do not fit on one line, put them each on a new
+# line.
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+# Indent initializers by 4 spaces
+ConstructorInitializerIndentWidth: 4
+# Break constructor initializers before the colon and after the commas.
+BreakConstructorInitializers: BeforeColon
+
+# Function parameters all in one line or one per line:
+BinPackArguments: false
+BinPackParameters: false
+
+# Indent width for line continuations.
+ContinuationIndentWidth: 8
+
+# No indentation for namespaces.
+NamespaceIndentation: None
+CompactNamespaces: false
+FixNamespaceComments: true
+
+# Turn off indentation for preprocessing directives (if/ifdef/endif).
+# https://reviews.llvm.org/rL312125
+#
+# Enabling this creates problems with the heuristic used to distinguish
+# between header guards and regular defines, due to the way we have
+# "#pragma once" before header guards instead of the opposite.
+IndentPPDirectives: None
+
+# Horizontally align arguments after an open bracket.
+# The coding style does not specify the following, but this is what gives
+# results closest to the existing code.
+AlignAfterOpenBracket: true
+AlwaysBreakTemplateDeclarations: true
+
+# Ideally we should also allow less short function in a single line, but
+# clang-format does not handle that.
+AllowShortFunctionsOnASingleLine: Empty
+
+# Never put short ifs on the same line.
+AllowShortIfStatementsOnASingleLine: Never
+
+# The coding style specifies some include order categories, but also tells to
+# separate categories with an empty line. Sort each block alphabetically, but
+# leave the responsibility to define blocks to the programmer.
+SortIncludes: true
+IncludeBlocks: Preserve
+
+ReflowComments: true

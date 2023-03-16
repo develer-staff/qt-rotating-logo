@@ -1,0 +1,23 @@
+{
+  "format": {
+    "line_width": 120,
+    "tab_size": 4
+  },
+  "additional_commands": {
+    "qt_add_resources": {
+      "kwargs": {
+        "BASE": "1",
+        "FILES": "+",
+        "PREFIX": "1"
+      }
+    },
+    "run_windeployqt": {
+      "pargs": {
+        "nargs": "1"
+      },
+      "kwargs": {
+        "QML_DIRS": "+"
+      }
+    }
+  }
+}

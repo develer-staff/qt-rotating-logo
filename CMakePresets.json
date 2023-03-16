@@ -1,0 +1,32 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 21,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "default",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build",
+      "architecture": {
+        "value": "x64",
+        "strategy": "external"
+      },
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_C_COMPILER": "cl",
+        "CMAKE_CXX_CLANG_TIDY": "$env{ProgramFiles}\\LLVM\\bin\\clang-tidy.exe;--warnings-as-errors=*",
+        "CMAKE_CXX_COMPILER": "cl"
+      }
+    },
+    {
+      "name": "default-no-clang-tidy",
+      "inherits": "default",
+      "cacheVariables": {
+        "CMAKE_CXX_CLANG_TIDY": ""
+      }
+    }
+  ]
+}

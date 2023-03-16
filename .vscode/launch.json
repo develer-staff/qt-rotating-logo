@@ -1,0 +1,21 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Application",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "preLaunchTask": "Build Application",
+      "program": "${command:cmake.buildDirectory}/application/bin/application.exe",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${command:cmake.buildDirectory}/application/bin",
+      "console": "internalConsole",
+      "internalConsoleOptions": "openOnSessionStart",
+      "logging": { "moduleLoad": false }
+    }
+  ]
+}
