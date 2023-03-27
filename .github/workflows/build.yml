@@ -1,0 +1,16 @@
+name: build
+run-name: Build
+on: [push]
+jobs:
+  build-win:
+    env:
+      CMAKE_PREFIX_PATH: "C:\\Qt\\6.3.2\\msvc2019_64\\lib\\cmake"
+    runs-on: windows-2022
+    steps:
+      # Checkout the repository
+      - uses: actions/checkout@v3
+      # Install Qt
+      - run: pip install aqtinstall==3.1.4
+      - run: aqt install-qt windows desktop 6.3.2 win64_msvc2019_64 -O C:\Qt
+      # Run the build script
+      - run: python .\script\build-win.py

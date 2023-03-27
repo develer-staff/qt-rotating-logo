@@ -15,7 +15,7 @@ import sys
 TOP_LEVEL = pathlib.Path(__file__).parent.parent
 
 DEFAULT_BUILD_DIR = "build"
-DEFAULT_CMAKE_PRESET = "default"
+DEFAULT_CMAKE_PRESET = "default-win"
 
 VSROOT = pathlib.Path(os.environ["ProgramFiles(x86)"]) / "Microsoft Visual Studio"
 

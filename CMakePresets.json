@@ -7,7 +7,7 @@
   },
   "configurePresets": [
     {
-      "name": "default",
+      "name": "default-win",
       "generator": "Ninja",
       "binaryDir": "${sourceDir}/build",
       "architecture": {
@@ -22,8 +22,8 @@
       }
     },
     {
-      "name": "default-no-clang-tidy",
-      "inherits": "default",
+      "name": "default-win-no-clang-tidy",
+      "inherits": "default-win",
       "cacheVariables": {
         "CMAKE_CXX_CLANG_TIDY": ""
       }
