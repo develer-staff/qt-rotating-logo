@@ -26,4 +26,6 @@ qt_add_resources(
     PREFIX "/"
     FILES ${RESOURCE_FILES})
 
-run_windeployqt(${TARGET} QML_DIRS ${QML_DIR})
+if(WIN32)
+    run_windeployqt(${TARGET} QML_DIRS ${QML_DIR})
+endif()

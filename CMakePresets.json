@@ -27,6 +27,21 @@
       "cacheVariables": {
         "CMAKE_CXX_CLANG_TIDY": ""
       }
+    },
+    {
+      "name": "default-linux",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build",
+      "architecture": {
+        "value": "x64",
+        "strategy": "external"
+      },
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_C_COMPILER": "/usr/bin/gcc",
+        "CMAKE_CXX_CLANG_TIDY": "/usr/bin/clang-tidy;--warnings-as-errors=*",
+        "CMAKE_CXX_COMPILER": "/usr/bin/g++"
+      }
     }
   ]
 }
