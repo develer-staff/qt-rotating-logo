@@ -5,6 +5,7 @@ jobs:
   build-win:
     env:
       CMAKE_PREFIX_PATH: "C:\\Qt\\6.3.2\\msvc2019_64\\lib\\cmake"
+      PYTHONUNBUFFERED: "1"
     runs-on: windows-2022
     steps:
       # Checkout the repository
@@ -17,6 +18,7 @@ jobs:
   build-linux:
     env:
       CMAKE_PREFIX_PATH: "~/.local/lib/qt/6.3.2/gcc_64"
+      PYTHONUNBUFFERED: "1"
     runs-on: ubuntu-22.04
     steps:
       # Checkout the repository
