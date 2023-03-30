@@ -15,17 +15,11 @@ import sys
 TOP_LEVEL = pathlib.Path(__file__).parent.parent
 
 DEFAULT_BUILD_DIR = "build"
-DEFAULT_CMAKE_PRESET = "default"
-
-VSROOT = pathlib.Path(os.environ["ProgramFiles(x86)"]) / "Microsoft Visual Studio"
+DEFAULT_CMAKE_PRESET = "default-linux"
 
 
 def main():
     args = parse_args()
-
-    if not is_vsdevcmd():
-        call(str(vsdevcmd()), "-arch=x64", "&&", sys.executable, __file__, *sys.argv[1:])
-        return
 
     cmake_preset = args.preset  # type: str
     build_dir = TOP_LEVEL / args.build_dir  # type: pathlib.Path
@@ -73,43 +67,11 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-# Check if the current script was launched from within a "Visual Studio Developer Command Prompt".
-def is_vsdevcmd() -> bool:
-    return "VSCMD_VER" in os.environ
-
-
-# Return the path of Visual Studio Developer Command Prompt.
-def vsdevcmd() -> pathlib.Path:
-    # Call vswhere to find the path of Visual Studio Developer Command Prompt.
-    vswhere = VSROOT / "Installer" / "vswhere.exe"
-    if not vswhere.exists():
-        raise EnvironmentError("Could not find vswhere.exe")
-    # Get the path of the latest Visual Studio installation.
-    vsdev_install_dir = output(
-        str(vswhere),
-        "-products",
-        "*",
-        "-requires",
-        "Microsoft.Component.MSBuild",
-        "-latest",
-        "-property",
-        "installationPath",
-    )
-    vsdevcmdpath = pathlib.Path(vsdev_install_dir) / "Common7" / "Tools" / "vsdevcmd.bat"
-    if not vsdevcmdpath.exists():
-        raise EnvironmentError("Could not find vsdevcmd.bat")
-    return vsdevcmdpath
-
-
 def call(*args: str) -> int:
     print()
     print("[call]", *args)
     print()
     return subprocess.check_call(args)
-
-
-def output(*args: str) -> str:
-    return subprocess.check_output(args, encoding="utf-8").strip()
 
 
 @contextlib.contextmanager

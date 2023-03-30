@@ -18,7 +18,9 @@ target_include_directories(${TARGET} PRIVATE ${SRC_DIR})
 
 target_link_libraries(${TARGET} PRIVATE Catch2::Catch2WithMain Qt::Test libcommon)
 
-run_windeployqt(${TARGET})
+if(WIN32)
+    run_windeployqt(${TARGET})
+endif()
 
 list(APPEND CMAKE_MODULE_PATH ${catch2_SOURCE_DIR}/extras)
 
