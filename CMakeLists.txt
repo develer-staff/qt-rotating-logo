@@ -61,7 +61,13 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-add_compile_options(/W3 /WX)
+if(WIN32)
+    # Add compile flags for windows
+    add_compile_options(/W3 /WX)
+elseif(UNIX)
+    # Add compile flags for linux
+    add_compile_options(-Wall -Wextra -pedantic -Werror)
+endif()
 
 #
 # Enable unit tests

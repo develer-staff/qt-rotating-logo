@@ -12,6 +12,7 @@ Checks: >
   -cppcoreguidelines-avoid-magic-numbers,
   -cppcoreguidelines-avoid-non-const-global-variables,
   -cppcoreguidelines-avoid-c-arrays,
+  -cppcoreguidelines-avoid-do-while,
   cppcoreguidelines-c-copy-assignment-signature,
   cppcoreguidelines-explicit-virtual-functions,
   google-build-namespaces,
